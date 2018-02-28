@@ -54,6 +54,21 @@
 		    
 		    <div layout:fragment="pageScripts">
 		    		<script>
+		    			$(document).ready(function() {
+		    				$.ajax({
+							url : "/api/items",
+							dataType: "json",
+							method: "GET",
+							success: function(resultMsg) {
+								console.log(resultMsg);
+							},
+							error : function(e) {
+								alert("ERROR: ", e);
+								console.log("ERROR: ", e);
+							}
+						});
+		    			});
+		    		
 					$(".deleteItem").bind("click", function () {
 						$.ajax({
 							url : "deleteItem/" + $(this).data("id"),
