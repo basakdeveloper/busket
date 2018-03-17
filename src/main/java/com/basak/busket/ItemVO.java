@@ -7,6 +7,8 @@ public class ItemVO {
 	private int id;
 	
 	private String name;
+	
+	private ShopVO shopVO;
 
 	public ItemVO(int id, String name) {
 		super();
@@ -17,6 +19,7 @@ public class ItemVO {
 	public ItemVO(Item item) {
 		this.id = item.getId();
 		this.name = item.getName();
+		this.shopVO = new ShopVO(item.getShop(), false);
 	}
 
 	public int getId() {
@@ -33,5 +36,13 @@ public class ItemVO {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public ShopVO getShopVO() {
+		return shopVO;
+	}
+
+	public void setShopVO(ShopVO shopVO) {
+		this.shopVO = shopVO;
 	}
 }

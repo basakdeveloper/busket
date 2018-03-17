@@ -9,8 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.basak.busket.ItemVO;
+import com.basak.busket.ShopVO;
 import com.basak.busket.model.Item;
+import com.basak.busket.model.Shop;
 import com.basak.busket.service.ItemService;
+import com.basak.busket.service.ShopService;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -18,6 +21,9 @@ public class BusketAPIController {
 
 	@Autowired
 	private ItemService itemService;
+	
+	@Autowired
+	private ShopService shopService;
 	
 	@RequestMapping(path="/api/items")
     public List<ItemVO> items() {
@@ -30,4 +36,28 @@ public class BusketAPIController {
 		
 		return itemVOs;
     }
+	
+	@RequestMapping(path="/api/shops")
+    public List<ShopVO> shops() {
+		List<Shop> shops = shopService.getShops();
+		
+		List<ShopVO> shopVOs = new ArrayList<ShopVO>();
+		for (Shop shop : shops) {
+			shopVOs.add(new ShopVO(shop, false));
+		}
+		
+		return shopVOs;
+    }
+	
+	@RequestMapping(path="/api/shopsWithItems")
+	public List<ShopVO> shopsWithItems() {
+		List<Shop> shops = shopService.getShops();
+		
+		List<ShopVO> shopVOs = new ArrayList<ShopVO>();
+		for (Shop shop : shops) {
+			shopVOs.add(new ShopVO(shop, true));
+		}
+		
+		return shopVOs;
+	}
 }
