@@ -3,8 +3,8 @@ package com.basak.busket;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.basak.busket.model.Item;
-import com.basak.busket.model.Shop;
+import com.basak.busket.model.shoppinglist.Item;
+import com.basak.busket.model.shoppinglist.Shop;
 
 public class ShopVO {
 
@@ -13,6 +13,14 @@ public class ShopVO {
 	private String name;
 	
 	private List<ItemVO> items;
+	
+	public ShopVO() {
+
+	}
+	
+	public ShopVO(int id) {
+		this.id = id;
+	}
 
 	public ShopVO(Shop shop, boolean fetchItems) {
 		this.id = shop.getId();

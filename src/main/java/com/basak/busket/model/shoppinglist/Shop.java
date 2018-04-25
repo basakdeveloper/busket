@@ -1,18 +1,20 @@
-package com.basak.busket.model;
+package com.basak.busket.model.shoppinglist;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 @Entity
-@Table(name = "item")
-public class Item {
+@Table(name = "shop")
+public class Shop {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,12 +22,10 @@ public class Item {
 	private int id;
 	
 	@Column(name = "name")
-	@NotEmpty(message = "*Please provide item name")
 	private String name;
 	
-	@NotEmpty(message = "*Please select a shop")
-	@OneToOne
-	private Shop shop;
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "shop")
+	public List<Item> items;
 
 	public int getId() {
 		return id;
@@ -43,11 +43,12 @@ public class Item {
 		this.name = name;
 	}
 
-	public Shop getShop() {
-		return shop;
+	public List<Item> getItems() {
+		return items;
 	}
 
-	public void setShop(Shop shop) {
-		this.shop = shop;
+	public void setItems(List<Item> items) {
+		this.items = items;
 	}
+
 }

@@ -2,7 +2,7 @@ package com.basak.busket.service;
 
 import java.util.List;
 
-import com.basak.busket.model.Item;
+import com.basak.busket.model.shoppinglist.Item;
 
 public interface ItemService {
 

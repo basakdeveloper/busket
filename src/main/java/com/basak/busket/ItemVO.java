@@ -1,6 +1,6 @@
 package com.basak.busket;
 
-import com.basak.busket.model.Item;
+import com.basak.busket.model.shoppinglist.Item;
 
 public class ItemVO {
 
@@ -8,7 +8,7 @@ public class ItemVO {
 	
 	private String name;
 	
-	private ShopVO shopVO;
+	private ShopVO shop;
 
 	public ItemVO(int id, String name) {
 		super();
@@ -19,7 +19,11 @@ public class ItemVO {
 	public ItemVO(Item item) {
 		this.id = item.getId();
 		this.name = item.getName();
-		this.shopVO = new ShopVO(item.getShop(), false);
+		this.shop = new ShopVO(item.getShop(), false);
+	}
+	
+	public ItemVO() {
+		
 	}
 
 	public int getId() {
@@ -38,11 +42,11 @@ public class ItemVO {
 		this.name = name;
 	}
 
-	public ShopVO getShopVO() {
-		return shopVO;
+	public ShopVO getShop() {
+		return shop;
 	}
 
-	public void setShopVO(ShopVO shopVO) {
-		this.shopVO = shopVO;
+	public void setShopVO(ShopVO shop) {
+		this.shop = shop;
 	}
 }

@@ -1,22 +1,15 @@
-package com.basak.busket.model;
+package com.basak.busket.model.expense;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 @Entity
-@Table(name = "shop")
-public class Shop {
+@Table(name = "expense_account")
+public class ExpenseAccount {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,11 +17,7 @@ public class Shop {
 	private int id;
 	
 	@Column(name = "name")
-	@NotEmpty(message = "*Please provide item name")
 	private String name;
-	
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "shop")
-	public List<Item> items;
 
 	public int getId() {
 		return id;
@@ -45,4 +34,5 @@ public class Shop {
 	public void setName(String name) {
 		this.name = name;
 	}
+
 }

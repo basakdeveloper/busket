@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.basak.busket.model.Item;
+import com.basak.busket.model.shoppinglist.Item;
 import com.basak.busket.repository.ItemRepository;
 import com.basak.busket.service.ItemService;
 

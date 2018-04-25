@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.basak.busket.model.Item;
+import com.basak.busket.model.shoppinglist.Item;
 import com.basak.busket.service.ItemService;
 
 @Controller
