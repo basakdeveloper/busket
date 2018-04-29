@@ -1,8 +1,11 @@
 package com.basak.busket.dto.shoppinglist;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ShopDTO {
+public class ShopDTO implements Serializable {
+
+	private static final long serialVersionUID = -6574476530848326684L;
 
 	private int id;
 	
