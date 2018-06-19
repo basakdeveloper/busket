@@ -15,6 +15,7 @@ import com.basak.homemaker.expense.dto.ExpenseAccountDTO;
 import com.basak.homemaker.expense.dto.ExpenseCategoryDTO;
 import com.basak.homemaker.expense.dto.ExpenseDTO;
 import com.basak.homemaker.expense.service.ExpenseService;
+import com.basak.homemaker.shoppingbusket.dto.ItemDTO;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -29,7 +30,7 @@ public class ExpenseAPIController {
 		return expenses;
     }
 
-	@RequestMapping(value = "/api/expenses/add", method = RequestMethod.POST)
+	@RequestMapping(value = "/api/expense/add", method = RequestMethod.POST)
 	public ResponseEntity<String> addExpense(@RequestBody ExpenseDTO expenseDTO) {
 		expenseService.saveExpense(expenseDTO);
 		return ResponseEntity.status(HttpStatus.CREATED).build();
