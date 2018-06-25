@@ -15,7 +15,6 @@ import com.basak.homemaker.expense.dto.ExpenseAccountDTO;
 import com.basak.homemaker.expense.dto.ExpenseCategoryDTO;
 import com.basak.homemaker.expense.dto.ExpenseDTO;
 import com.basak.homemaker.expense.service.ExpenseService;
-import com.basak.homemaker.shoppingbusket.dto.ItemDTO;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -27,6 +26,9 @@ public class ExpenseAPIController {
 	@RequestMapping(path="/api/expenses")
     public List<ExpenseDTO> expenses() {
 		List<ExpenseDTO> expenses = expenseService.getAllExpenses();
+		
+//		Map<String, List<ExpenseDTO>> expenseVal = new HashMap<>();
+//		expenseVal.put("data", expenses);
 		return expenses;
     }
 
