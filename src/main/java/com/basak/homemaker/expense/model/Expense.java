@@ -33,6 +33,9 @@ public class Expense {
 
 	@OneToOne
 	private ExpenseAccount expenseAccount;
+	
+	@Column(name = "amount")
+	private double amount;
 
 	public int getId() {
 		return id;
@@ -73,5 +76,12 @@ public class Expense {
 	public void setExpenseAccount(ExpenseAccount expenseAccount) {
 		this.expenseAccount = expenseAccount;
 	}
-	
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
 }

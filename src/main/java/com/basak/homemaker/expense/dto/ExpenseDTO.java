@@ -16,6 +16,8 @@ public class ExpenseDTO implements Serializable {
 	private ExpenseCategoryDTO expenseCategory;
 
 	private ExpenseAccountDTO expenseAccount;
+	
+	private double amount;
 
 	public int getId() {
 		return id;
@@ -55,6 +57,14 @@ public class ExpenseDTO implements Serializable {
 
 	public void setExpenseAccount(ExpenseAccountDTO expenseAccount) {
 		this.expenseAccount = expenseAccount;
+	}
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
 	}
 	
 }
